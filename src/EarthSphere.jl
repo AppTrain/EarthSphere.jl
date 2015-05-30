@@ -31,7 +31,7 @@ function Earth_LatLong_Coord(latitude::Degree,longitude::Degree,bearing::String)
 end
 export Earth_LatLong_Coord
 
-Earth_LatLong_Coord(latitude::Float32,longitude::Float32,bearing::String="") = Sphere_LatLong_Coord(latitude,longitude,bearing,6371)
+Earth_LatLong_Coord(latitude::Real,longitude::Real,bearing::String="") = Sphere_LatLong_Coord(latitude,longitude,bearing,6371)
 function Earth_LatLong_Coord(latitude::Real,longitude::Real)
 	if sign(latitude) == 1
 		inclination = "N"
