@@ -106,13 +106,13 @@ function degree_to_decimal_degree(degree::Degree)
 	return degree.degree + degree.minute/60 + degree.second/(60^2)
 end
 
-function convert(Spherical_Coord,latlong::LatLong_Coord)
+function Base.convert(Spherical_Coord,latlong::LatLong_Coord)
 	(signedlat,signedlong) = sign_lat_long(latlong.latitude,latlong.longitude,latlong.bearing)
 	phi = to_radians(signedlat)
 	theta =  to_radians(signedlong)
 	return Spherical_Coord(latlong.radius,theta,phi)
 end
-export convert
+#export convert
 function tuple(s::Sphere_LatLong_Coord)
 	#Takes a Spherical Coordinate and returns the signed latitude and longitude
 	first = s.longitude
